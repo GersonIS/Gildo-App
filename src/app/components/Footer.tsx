@@ -34,17 +34,17 @@ export default function Footer() {
           <ul className="text-gray-400 text-sm mt-2">
             <li>
               <Link href="/#inicio" className="hover:text-gray-200">
-                Inicio
+                Drywall
               </Link>
             </li>
             <li>
               <Link href="/#servicios" className="hover:text-gray-200">
-                Servicios
+                Melamine
               </Link>
             </li>
             <li>
               <Link href="/#nosotros" className="hover:text-gray-200">
-                Nosotros
+                Estructuras Metalicas
               </Link>
             </li>
             <li>

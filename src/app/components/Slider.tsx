@@ -5,9 +5,9 @@ import Image from "next/image";
 
 const images = [
   "/images/slider1.jpg",
+  "/images/logo.jpg",
   "/images/slider1.jpg",
-  "/images/slider1.jpg",
-  "/images/slider1.jpg",
+  "/images/logo.jpg",
 ];
 
 const Slider = () => {

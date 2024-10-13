@@ -5,37 +5,73 @@ import Link from "next/link";
 const services = [
   {
     id: 1,
-    name: "Instalaciones y Reparaciones",
+    name: "Drywall",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/instalaciones-reparaciones", // Ruta de la página del servicio
   },
   {
     id: 2,
-    name: "Diseño y Fabricación de Muebles",
+    name: "Melamine",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/diseno-fabricacion-muebles",
   },
   {
     id: 3,
-    name: "Carpintería",
+    name: "Climatizacion",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/carpinteria",
   },
   {
     id: 4,
-    name: "Gasfitería",
+    name: "Electricidad",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/gasfiteria",
   },
   {
     id: 5,
-    name: "Pintura",
+    name: "Vidrieria",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/pintura",
   },
   {
     id: 6,
-    name: "Drywall",
+    name: "Publicidad Exterior",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/drywall",
+  },
+  {
+    id: 7,
+    name: "Diseños CAD",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/instalaciones-reparaciones", // Ruta de la página del servicio
+  },
+  {
+    id: 8,
+    name: "Acero Inoxidable",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/diseno-fabricacion-muebles",
+  },
+  {
+    id: 9,
+    name: "Sistema de Seguridad",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/carpinteria",
+  },
+  {
+    id: 10,
+    name: "Pintura",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/gasfiteria",
+  },
+  {
+    id: 11,
+    name: "Gasfiteria",
+    imageUrl: "/images/servicios.jpg",
+    slug: "/servicios/pintura",
+  },
+  {
+    id: 12,
+    name: "Estructuras Metalicas",
     imageUrl: "/images/servicios.jpg",
     slug: "/servicios/drywall",
   },
@@ -43,7 +79,7 @@ const services = [
 
 export default function Servicios() {
   return (
-    <section id="servicios" className="py-12 bg-gray-900 text-white">
+    <section id="servicios" className="py-12 bg-gray-500 text-white">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

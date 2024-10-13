@@ -1,215 +1,227 @@
 "use client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaChevronDown } from "react-icons/fa"; // Importamos un icono de flecha hacia abajo
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false); // Estado para el menú móvil
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado para el dropdown de "Servicios"
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 200); // Retraso al cerrar para evitar desvanecimiento brusco
   };
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-gray-900 text-white p-4 fixed w-full z-50 shadow-lg h-16"
-    >
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Tu Empresa</h1>
+    <nav className="bg-gray-800 p-10 relative">
+      <div className="flex items-center justify-between">
+        {/* Logo o nombre de la empresa */}
+        <div className="text-white text-xl">PinDecords</div>
 
-        {/* Botón de hamburguesa para pantallas móviles */}
+        {/* Botón de menú móvil */}
         <button
-          className="block lg:hidden text-white focus:outline-none"
           onClick={toggleMenu}
+          className="text-white focus:outline-none md:hidden"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
+          <FontAwesomeIcon
+            icon={isOpen ? faTimes : faBars}
+            className="h-6 w-6"
+          />
         </button>
 
         {/* Menú en pantallas grandes */}
-        <ul className="lg:flex space-x-4 hidden">
-          <li>
-            <a href="#inicio" className="hover:text-gray-400">
-              Inicio
-            </a>
-          </li>
+        <div className={`hidden md:flex space-x-6 text-white`}>
+          <a href="#drywall" className="hover:text-gray-300">
+            Drywall
+          </a>
+          <a href="#melamine" className="hover:text-gray-300">
+            Melamine
+          </a>
+          <div
+            className="relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className="hover:text-gray-300">Servicios</button>
 
-          {/* Dropdown en "Servicios" */}
-          <li className="relative">
-            <a
-              className="hover:text-gray-400 cursor-pointer flex items-center"
-              onClick={toggleDropdown} // Cambiamos a onClick para pantallas grandes
-            >
-              Servicios <FaChevronDown className="ml-2" />{" "}
-              {/* Flecha hacia abajo */}
-            </a>
-
-            {/* Dropdown */}
-            {isDropdownOpen && (
-              <motion.ul
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
-                className="absolute bg-gray-800 p-4 mt-2 rounded-lg shadow-lg space-y-2 w-56"
-              >
-                <li>
+            {/* Mostrar el dropdown con animación */}
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute bg-gray-100 text-gray-800 p-4 rounded shadow-lg top-full w-56 z-50"
+                >
                   <a
-                    href="#servicio1"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
+                    href="#climatizacion"
+                    className="block px-4 py-2 hover:bg-white"
                   >
-                    Instalaciones y Reparaciones
+                    Climatización
                   </a>
-                </li>
-                <li>
                   <a
-                    href="#servicio2"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
+                    href="#electricidad"
+                    className="block px-4 py-2 hover:bg-white"
                   >
-                    Diseño y Fabricación de Muebles
+                    Electricidad
                   </a>
-                </li>
-                <li>
                   <a
-                    href="#servicio3"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
+                    href="#vidrieria"
+                    className="block px-4 py-2 hover:bg-white"
                   >
-                    Carpintería
+                    Vidriería
                   </a>
-                </li>
-                <li>
                   <a
-                    href="#servicio4"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
+                    href="#publicidad"
+                    className="block px-4 py-2 hover:bg-white"
+                  >
+                    Publicidad Exterior
+                  </a>
+                  <a href="#disenos" className="block px-4 py-2 hover:bg-white">
+                    Diseños CAD
+                  </a>
+                  <a
+                    href="#acero-inoxidable"
+                    className="block px-4 py-2 hover:bg-white"
+                  >
+                    Acero Inoxidable
+                  </a>
+                  <a
+                    href="#sistema-de-seguridad"
+                    className="block px-4 py-2 hover:bg-white"
+                  >
+                    Sistema de Seguridad
+                  </a>
+                  <a href="#pintura" className="block px-4 py-2 hover:bg-white">
+                    Pintura
+                  </a>
+                  <a
+                    href="#gasfiteria"
+                    className="block px-4 py-2 hover:bg-white"
                   >
                     Gasfitería
                   </a>
-                </li>
-                <li>
-                  <a
-                    href="#servicio5"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
-                  >
-                    Pintura
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#servicio6"
-                    className="block px-4 py-2 hover:bg-gray-700 rounded"
-                  >
-                    Drywall
-                  </a>
-                </li>
-              </motion.ul>
-            )}
-          </li>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <a href="#estructuras-metalicas" className="hover:text-gray-300">
+            Estructuras Metálicas
+          </a>
+          <a href="#contacto" className="hover:text-gray-300">
+            Contacto
+          </a>
+        </div>
+      </div>
 
-          <li>
-            <a href="#nosotros" className="hover:text-gray-400">
-              Nosotros
-            </a>
-          </li>
-          <li>
-            <a href="#contacto" className="hover:text-gray-400">
-              Contacto
-            </a>
-          </li>
-        </ul>
-
-        {/* Menú desplegable para pantallas móviles */}
+      {/* Menú móvil */}
+      <AnimatePresence>
         {isOpen && (
-          <motion.ul
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-16 left-0 w-full bg-gray-900 p-4 space-y-4 shadow-lg"
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden flex flex-col mt-4 space-y-4 text-white"
           >
-            <li>
-              <a href="#inicio" className="block hover:text-gray-400">
-                Inicio
-              </a>
-            </li>
-            <li>
-              <button
-                onClick={toggleDropdown}
-                className="w-full text-left hover:text-gray-400 flex items-center"
-              >
-                Servicios <FaChevronDown className="ml-2" />
-              </button>
-
-              {isDropdownOpen && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="pl-4 space-y-2"
-                >
-                  <li>
-                    <a href="#servicio1" className="block hover:text-gray-400">
-                      Instalaciones y Reparaciones
+            <a href="#drywall" className="hover:text-gray-300">
+              Drywall
+            </a>
+            <a href="#melamine" className="hover:text-gray-300">
+              Melamine
+            </a>
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="hover:text-gray-300">Servicios</button>
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="bg-gray-100 text-gray-800 p-4 rounded shadow-lg mt-2"
+                  >
+                    <a
+                      href="#climatizacion"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Climatización
                     </a>
-                  </li>
-                  <li>
-                    <a href="#servicio2" className="block hover:text-gray-400">
-                      Diseño y Fabricación de Muebles
+                    <a
+                      href="#electricidad"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Electricidad
                     </a>
-                  </li>
-                  <li>
-                    <a href="#servicio3" className="block hover:text-gray-400">
-                      Carpintería
+                    <a
+                      href="#vidrieria"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Vidriería
                     </a>
-                  </li>
-                  <li>
-                    <a href="#servicio4" className="block hover:text-gray-400">
-                      Gasfitería
+                    <a
+                      href="#publicidad"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Publicidad Exterior
                     </a>
-                  </li>
-                  <li>
-                    <a href="#servicio5" className="block hover:text-gray-400">
+                    <a
+                      href="#disenos"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Diseños CAD
+                    </a>
+                    <a
+                      href="#acero-inoxidable"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Acero Inoxidable
+                    </a>
+                    <a
+                      href="#sistema-de-seguridad"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Sistema de Seguridad
+                    </a>
+                    <a
+                      href="#pintura"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
                       Pintura
                     </a>
-                  </li>
-                  <li>
-                    <a href="#servicio6" className="block hover:text-gray-400">
-                      Drywall
+                    <a
+                      href="#gasfiteria"
+                      className="block px-4 py-2 hover:bg-white"
+                    >
+                      Gasfitería
                     </a>
-                  </li>
-                </motion.ul>
-              )}
-            </li>
-            <li>
-              <a href="#nosotros" className="block hover:text-gray-400">
-                Nosotros
-              </a>
-            </li>
-            <li>
-              <a href="#contacto" className="block hover:text-gray-400">
-                Contacto
-              </a>
-            </li>
-          </motion.ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            <a href="#estructuras-metalicas" className="hover:text-gray-300">
+              Estructuras Metálicas
+            </a>
+            <a href="#contacto" className="hover:text-gray-300">
+              Contacto
+            </a>
+          </motion.div>
         )}
-      </div>
-    </motion.nav>
+      </AnimatePresence>
+    </nav>
   );
-}
+};
+
+export default Navbar;
