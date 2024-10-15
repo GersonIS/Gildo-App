@@ -17,7 +17,7 @@ export default function Presentacion() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-4xl font-bold text-center mb-12"
         >
-          Bienvenidos a PINDECORS S.A.C.
+          Bienvenidos a EMPRESA S.A.C.
         </motion.h2>
 
         {/* Caja de texto con animaciones mejoradas */}
@@ -40,8 +40,8 @@ export default function Presentacion() {
           >
             {/* Texto con saltos de línea */}
             <p className="text-lg mb2">
-              <strong>PINDECORS S.A.C.</strong> es una empresa especializada en
-              la implementación de proyectos retail y servicios industriales.
+              <strong>EMPRESA S.A.C.</strong> es una empresa especializada en la
+              implementación de proyectos retail y servicios industriales.
             </p>
 
             <p className="text-lg mb-2">

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para el menú móvil
@@ -26,7 +27,9 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-800 p-10 relative">
       <div className="flex items-center justify-between">
         {/* Logo o nombre de la empresa */}
-        <div className="text-white text-xl">PinDecords</div>
+        <div className="text-white text-xl">
+          <Link href={"/"}>Empresa</Link>
+        </div>
 
         {/* Botón de menú móvil */}
         <button
@@ -41,12 +44,12 @@ const Navbar: React.FC = () => {
 
         {/* Menú en pantallas grandes */}
         <div className={`hidden md:flex space-x-6 text-white`}>
-          <a href="#drywall" className="hover:text-gray-300">
+          <Link href="/drywall" className="hover:text-gray-300">
             Drywall
-          </a>
-          <a href="#melamine" className="hover:text-gray-300">
+          </Link>
+          <Link href="/melamine" className="hover:text-gray-300">
             Melamine
-          </a>
+          </Link>
           <div
             className="relative"
             onMouseEnter={handleMouseEnter}
@@ -63,64 +66,70 @@ const Navbar: React.FC = () => {
                   exit={{ opacity: 0, y: -10 }}
                   className="absolute bg-gray-100 text-gray-800 p-4 rounded shadow-lg top-full w-56 z-50"
                 >
-                  <a
-                    href="#climatizacion"
+                  <Link
+                    href="/climatizacion"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Climatización
-                  </a>
-                  <a
-                    href="#electricidad"
+                  </Link>
+                  <Link
+                    href="/electricidad"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Electricidad
-                  </a>
-                  <a
-                    href="#vidrieria"
+                  </Link>
+                  <Link
+                    href="/vidrieria"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Vidriería
-                  </a>
-                  <a
-                    href="#publicidad"
+                  </Link>
+                  <Link
+                    href="/publicidad-exterior"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Publicidad Exterior
-                  </a>
-                  <a href="#disenos" className="block px-4 py-2 hover:bg-white">
+                  </Link>
+                  <Link
+                    href="/disenos-cad"
+                    className="block px-4 py-2 hover:bg-white"
+                  >
                     Diseños CAD
-                  </a>
-                  <a
-                    href="#acero-inoxidable"
+                  </Link>
+                  <Link
+                    href="/acero-inoxidable"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Acero Inoxidable
-                  </a>
-                  <a
-                    href="#sistema-de-seguridad"
+                  </Link>
+                  <Link
+                    href="/sistema-de-seguridad"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Sistema de Seguridad
-                  </a>
-                  <a href="#pintura" className="block px-4 py-2 hover:bg-white">
+                  </Link>
+                  <Link
+                    href="/pintura"
+                    className="block px-4 py-2 hover:bg-white"
+                  >
                     Pintura
-                  </a>
-                  <a
-                    href="#gasfiteria"
+                  </Link>
+                  <Link
+                    href="/gasfiteria"
                     className="block px-4 py-2 hover:bg-white"
                   >
                     Gasfitería
-                  </a>
+                  </Link>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-          <a href="#estructuras-metalicas" className="hover:text-gray-300">
+          <Link href="/estructuras-metalicas" className="hover:text-gray-300">
             Estructuras Metálicas
-          </a>
-          <a href="#contacto" className="hover:text-gray-300">
+          </Link>
+          <Link href="/contacto" className="hover:text-gray-300">
             Contacto
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -133,12 +142,12 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden flex flex-col mt-4 space-y-4 text-white"
           >
-            <a href="#drywall" className="hover:text-gray-300">
+            <Link href="/drywall" className="hover:text-gray-300">
               Drywall
-            </a>
-            <a href="#melamine" className="hover:text-gray-300">
+            </Link>
+            <Link href="/melamine" className="hover:text-gray-300">
               Melamine
-            </a>
+            </Link>
             <div
               className="relative"
               onMouseEnter={handleMouseEnter}
@@ -153,70 +162,70 @@ const Navbar: React.FC = () => {
                     exit={{ opacity: 0, y: -10 }}
                     className="bg-gray-100 text-gray-800 p-4 rounded shadow-lg mt-2"
                   >
-                    <a
-                      href="#climatizacion"
+                    <Link
+                      href="/climatizacion"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Climatización
-                    </a>
-                    <a
-                      href="#electricidad"
+                    </Link>
+                    <Link
+                      href="/electricidad"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Electricidad
-                    </a>
-                    <a
-                      href="#vidrieria"
+                    </Link>
+                    <Link
+                      href="/vidrieria"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Vidriería
-                    </a>
-                    <a
-                      href="#publicidad"
+                    </Link>
+                    <Link
+                      href="/publicidad-exterior"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Publicidad Exterior
-                    </a>
-                    <a
-                      href="#disenos"
+                    </Link>
+                    <Link
+                      href="/disenos-cad"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Diseños CAD
-                    </a>
-                    <a
-                      href="#acero-inoxidable"
+                    </Link>
+                    <Link
+                      href="/acero-inoxidable"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Acero Inoxidable
-                    </a>
-                    <a
-                      href="#sistema-de-seguridad"
+                    </Link>
+                    <Link
+                      href="/sistema-de-seguridad"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Sistema de Seguridad
-                    </a>
-                    <a
-                      href="#pintura"
+                    </Link>
+                    <Link
+                      href="/pintura"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Pintura
-                    </a>
-                    <a
-                      href="#gasfiteria"
+                    </Link>
+                    <Link
+                      href="/gasfiteria"
                       className="block px-4 py-2 hover:bg-white"
                     >
                       Gasfitería
-                    </a>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            <a href="#estructuras-metalicas" className="hover:text-gray-300">
+            <Link href="/estructuras-metalicas" className="hover:text-gray-300">
               Estructuras Metálicas
-            </a>
-            <a href="#contacto" className="hover:text-gray-300">
+            </Link>
+            <Link href="/contacto" className="hover:text-gray-300">
               Contacto
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
