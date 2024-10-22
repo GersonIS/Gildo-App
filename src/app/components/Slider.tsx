@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/images/slider1.jpg",
+  "/images/servicios.jpg",
   "/images/logo.jpg",
   "/images/slider1.jpg",
   "/images/logo.jpg",
@@ -48,7 +48,6 @@ const Slider = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Sin animación de imagen */}
         <motion.div
           key={currentIndex}
           initial={{ opacity: 1 }}
@@ -59,9 +58,9 @@ const Slider = () => {
           <Image
             src={images[currentIndex]}
             alt={`Producto ${currentIndex + 1}`}
-            className="w-full max-h-[500px] object-cover"
-            height={400}
-            width={400}
+            className="w-full h-[400px] object-cover" // Ajustar altura aquí
+            height={400} // Altura de la imagen
+            width={600} // Ancho de la imagen, ajusta si es necesario
           />
         </motion.div>
       </motion.div>
@@ -122,7 +121,7 @@ const Slider = () => {
 
       {/* Indicadores con barras horizontales */}
       <motion.div
-        className="flex justify-center  space-x-2"
+        className="flex justify-center space-x-2"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}

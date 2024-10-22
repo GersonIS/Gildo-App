@@ -1,9 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaCheckCircle, FaHandshake, FaIndustry } from "react-icons/fa";
 
 export default function Presentacion() {
   return (
-    <section id="presentacion" className="py-16 bg-gray-900 text-white">
+    <section
+      id="presentacion"
+      className="py-16 bg-gray-900 text-white relative"
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -17,7 +22,7 @@ export default function Presentacion() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-4xl font-bold text-center mb-12"
         >
-          Bienvenidos a EMPRESA S.A.C.
+          Bienvenidos a <span className="text-blue-500">EMPRESA S.A.C.</span>
         </motion.h2>
 
         {/* Caja de texto con animaciones mejoradas */}
@@ -38,25 +43,46 @@ export default function Presentacion() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            {/* Texto con saltos de línea */}
-            <p className="text-lg mb2">
-              <strong>EMPRESA S.A.C.</strong> es una empresa especializada en la
-              implementación de proyectos retail y servicios industriales.
+            {/* Texto con iconos representativos */}
+            <p className="text-lg mb-4 flex justify-center items-center">
+              <FaIndustry className="text-blue-500 mr-2" />
+              EMPRESA S.A.C. es especializada en la implementación de proyectos
+              retail y servicios industriales.
             </p>
 
-            <p className="text-lg mb-2">
+            <p className="text-lg mb-4 flex justify-center items-center">
+              <FaHandshake className="text-blue-500 mr-2" />
               La División de Proyectos y Servicios cuenta con alianzas
-              estratégicas con proveedores de diferentes marcas, obteniendo
-              ventajas de precio, calidad y plazos de entrega.
+              estratégicas con proveedores clave.
             </p>
 
-            <p className="text-lg">
-              Todo esto nos permite alcanzar resultados favorables con un solo
-              objetivo en mente:{" "}
-              <strong>Cumplimiento y Satisfacción del Cliente</strong>.
+            <p className="text-lg flex justify-center items-center">
+              <FaCheckCircle className="text-blue-500 mr-2" />
+              Nuestro objetivo es: Cumplimiento y Satisfacción del Cliente.
             </p>
+            <div className="mt-8 rounded-lg flex justify-center items-center w-full">
+              <Image
+                src="/images/servicios.jpg" // Reemplaza esta ruta con la de tu imagen
+                alt="Imagen de la empresa"
+                width={800}
+                height={600}
+                className="object-cover w-52 h-full"
+              />
+            </div>
           </motion.div>
         </motion.div>
+
+        {/* Botón de contacto (opcional) */}
+        <div className="text-center mt-8">
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            href="/contacto"
+            className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-500 transition-all duration-300"
+          >
+            Contáctanos
+          </motion.a>
+        </div>
       </motion.div>
     </section>
   );
