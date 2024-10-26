@@ -77,7 +77,10 @@ export default function Servicios() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.button
+          <motion.a
+            href="https://wa.me/948765692?text=Hola,%20quiero%20cotizar%20un%20servicio."
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{
               scale: 1.1,
               boxShadow: "0 0 15px rgba(0, 123, 255, 0.5)",
@@ -86,7 +89,7 @@ export default function Servicios() {
             className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-500 transition-all duration-300"
           >
             Cotizar
-          </motion.button>
+          </motion.a>
         </motion.div>
       </motion.div>
 
