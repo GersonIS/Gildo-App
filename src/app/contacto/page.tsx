@@ -40,12 +40,30 @@ const NosotrosPage = () => {
       <h1 className="text-4xl font-bold mb-8 text-center text-blue-600">
         Nosotros
       </h1>
+
+      <motion.p
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        className="mb-8 text-lg text-center text-gray-700"
+      >
+        <strong>Construcción y Compromiso:</strong> Nos dedicamos a ofrecer
+        soluciones integrales en construcción y remodelación, abarcando desde la
+        creación hasta la renovación de espacios en diversas áreas, como centros
+        educativos, de salud y comerciales. Nuestro equipo de expertos se
+        especializa en demoliciones controladas, acabados de alta calidad y
+        diseño de interiores, asegurando que cada proyecto combine funcionalidad
+        con estética. Valoramos la calidad en cada detalle y nos comprometemos a
+        cumplir con las expectativas de nuestros clientes, utilizando materiales
+        de primera y técnicas innovadoras para lograr resultados excepcionales y
+        plazos de entrega eficientes.
+      </motion.p>
+
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Información de la Empresa */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className="md:w-1/2"
         >
           <div className="p-6 bg-white border rounded-lg shadow-md">
@@ -65,11 +83,10 @@ const NosotrosPage = () => {
           </div>
         </motion.div>
 
-        {/* Formulario de Contacto */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className="md:w-1/2"
         >
           <h2 className="text-xl font-semibold mb-6 text-blue-500">Contacto</h2>

@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/images/servicios.jpg",
-  "/images/logo.jpg",
+  "/images/prueba.jpg",
+  "/images/vidrieria.jpg",
   "/images/slider1.jpg",
-  "/images/logo.jpg",
+  "/images/vidrieria.jpg",
 ];
 
 const Slider = () => {
@@ -58,8 +58,8 @@ const Slider = () => {
           <Image
             src={images[currentIndex]}
             alt={`Producto ${currentIndex + 1}`}
-            className="w-full h-[400px] object-cover" // Ajustar altura aquí
-            height={400} // Altura de la imagen
+            className="w-full h-[500px] object-cover" // Ajustar altura aquí
+            height={500} // Altura de la imagen
             width={600} // Ancho de la imagen, ajusta si es necesario
           />
         </motion.div>

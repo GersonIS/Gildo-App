@@ -8,30 +8,25 @@ const services = [
   { id: 3, name: "Climatización", slug: "/climatizacion" },
   { id: 4, name: "Electricidad", slug: "/electricidad" },
   { id: 5, name: "Vidriería", slug: "/vidrieria" },
-  {
-    id: 6,
-    name: "Publicidad Exterior",
-    slug: "/publicidad-exterior",
-  },
+  { id: 6, name: "Publicidad Exterior", slug: "/publicidad-exterior" },
   { id: 7, name: "Diseños CAD", slug: "/disenos-cad" },
   { id: 8, name: "Acero Inoxidable", slug: "/acero-inoxidable" },
   { id: 9, name: "Sistema de Seguridad", slug: "/sistema-de-seguridad" },
   { id: 10, name: "Pintura", slug: "/pintura" },
   { id: 11, name: "Gasfitería", slug: "/gasfiteria" },
-  {
-    id: 12,
-    name: "Estructuras Metálicas",
-    slug: "/estructuras-metalicas",
-  },
+  { id: 12, name: "Estructuras Metálicas", slug: "/estructuras-metalicas" },
 ];
 
 export default function Servicios() {
   return (
-    <section
+    <motion.section
       id="servicios"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
       className="py-16 bg-cover bg-center relative"
       style={{
-        backgroundImage: `url('/images/servicios.jpg')`, // URL de la imagen de fondo
+        backgroundImage: `url('/images/servicios.jpg')`,
       }}
     >
       {/* Superposición de color para mejor legibilidad */}
@@ -76,23 +71,26 @@ export default function Servicios() {
             </motion.div>
           ))}
         </div>
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.button
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 15px rgba(0, 123, 255, 0.5)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-500 transition-all duration-300"
+          >
+            Cotizar
+          </motion.button>
+        </motion.div>
       </motion.div>
 
       {/* Botón Cotizar Fijo */}
-      <motion.div
-        className="fixed bottom-8 right-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-500 transition-all duration-300"
-        >
-          Cotizar
-        </motion.button>
-      </motion.div>
-    </section>
+    </motion.section>
   );
 }

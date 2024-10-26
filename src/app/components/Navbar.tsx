@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-800 p-10 relative">
       <div className="flex items-center justify-between">
         {/* Logo o nombre de la empresa */}
-        <div className="text-white text-xl">
+        <div className="text-white text-2xl">
           <Link href={"/"}>Empresa</Link>
         </div>
 
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Menú en pantallas grandes */}
-        <div className={`hidden md:flex space-x-6 text-white`}>
+        <div className={`hidden md:flex space-x-6 text-white text-lg`}>
           <Link href="/drywall" className="hover:text-gray-300">
             Drywall
           </Link>
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute bg-gray-700 text-white p-4 rounded shadow-lg top-full w-56 z-50"
+                  className="absolute bg-gray-700 text-white p-4 rounded shadow-lg top-full w-60 z-50"
                 >
                   <Link
                     href="/climatizacion"
